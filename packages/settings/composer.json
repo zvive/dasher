@@ -9,7 +9,7 @@
     },
     "require": {
         "php": "^8.0",
-        "dasher/dasher": "^1.1",
+        "dasher/dasher": "^1.0.4",
         "illuminate/console": "^8.6|^9.0",
         "illuminate/filesystem": "^8.6|^9.0",
         "illuminate/support": "^8.6|^9.0",
@@ -42,6 +42,14 @@
         {
             "type": "path",
             "url": "../core"
+        },
+        {
+            "type": "path",
+            "url": "../forms"
+        },
+        {
+            "type": "path",
+            "url": "../tables"
         }
     ]
 }

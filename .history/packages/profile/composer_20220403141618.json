@@ -1,0 +1,80 @@
+{
+    "name": "zvive/dasher-profile-plugin",
+    "description": "A simple profile page for Dasher.",
+    "homepage": "https://github.com/zvive/dasher",
+    "support": {
+        "issues": "https://github.com/zvive/dasher/issues",
+        "source": "https://github.com/zvive/dasher"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Patrick Curl",
+            "email": "patrickwcurl@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "spatie/laravel-package-tools": "^1.11",
+        "dasher/dasher": "^1.1",
+        "illuminate/contracts": "^8.73|^9.0"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^5.10|^6.0",
+        "nunomaduro/larastan": "^1.0|^2.0",
+        "orchestra/testbench": "^6.22|^7.0",
+        "pestphp/pest": "^1.21",
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpunit/phpunit": "^9.5",
+        "spatie/laravel-ray": "^1.26"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dasher\\Profile\\": "src",
+            "Dasher\\Profile\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dasher\\Profile\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Dasher\Profile\\DasherProfileServiceProvider"
+            ],
+            "aliases": {
+                "DasherProfile": "Dasher\Profile\\Facades\\DasherProfile"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../core"
+        },
+        {
+            "type": "path",
+            "url": "../forms"
+        },
+        {
+            "type": "path",
+            "url": "../tables"
+        }
+    ]
+}

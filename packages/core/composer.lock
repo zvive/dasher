@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf84e1adff463d31726c6a0450cd7d02",
+    "content-hash": "d87bcfa351d68fd79258c7016bbea732",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -388,11 +388,11 @@
         },
         {
             "name": "dasher/forms",
-            "version": "dev-main",
+            "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "../forms",
-                "reference": "c2f163b6fc0aeacdbf2075846b37d816538ef658"
+                "reference": "81fc71ac7d19d1e2fb30e1e35052d2e875fcfec4"
             },
             "require": {
                 "blade-ui-kit/blade-heroicons": "^1.2",
@@ -417,6 +417,9 @@
                     "providers": [
                         "Dasher\\Forms\\FormsServiceProvider"
                     ]
+                },
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -442,16 +445,16 @@
         },
         {
             "name": "dasher/tables",
-            "version": "dev-main",
+            "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "../tables",
-                "reference": "e46dad544c2d328e8a07e4cba94294ba0e907c61"
+                "reference": "d2135d3956ae584bcf007877e339a5da234ab199"
             },
             "require": {
                 "akaunting/laravel-money": "^1.2|^2.0",
                 "blade-ui-kit/blade-heroicons": "^1.2",
-                "dasher/forms": "@dev",
+                "dasher/forms": "^1.1",
                 "illuminate/console": "^8.6|^9.0",
                 "illuminate/contracts": "^8.6|^9.0",
                 "illuminate/database": "^8.6|^9.0",
@@ -471,6 +474,9 @@
                     "providers": [
                         "Dasher\\Tables\\TablesServiceProvider"
                     ]
+                },
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -5514,10 +5520,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "dasher/forms": 20,
-        "dasher/tables": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
