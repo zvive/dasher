@@ -1,0 +1,81 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Admin\Navigation;
+
+class UserMenuItem
+{
+    protected ?string $color = null;
+    protected ?string $icon  = null;
+    protected ?string $label = null;
+    protected ?int $sort     = null;
+    protected ?string $url   = null;
+
+    final public function __construct() {}
+
+    public function color(?string $color) : static
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
+    public function getColor() : ?string
+    {
+        return $this->color;
+    }
+
+    public function getIcon() : ?string
+    {
+        return $this->icon;
+    }
+
+    public function getLabel() : ?string
+    {
+        return $this->label;
+    }
+
+    public function getSort() : int
+    {
+        return $this->sort ?? -1;
+    }
+
+    public function getUrl() : ?string
+    {
+        return $this->url;
+    }
+
+    public function icon(?string $icon) : static
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
+
+    public function label(?string $label) : static
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
+    public static function make() : static
+    {
+        return \app(static::class);
+    }
+
+    public function sort(?int $sort) : static
+    {
+        $this->sort = $sort;
+
+        return $this;
+    }
+
+    public function url(?string $url) : static
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+}

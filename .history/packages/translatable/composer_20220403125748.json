@@ -1,0 +1,34 @@
+{
+    "name": "dasher/dasher-translatable-plugin",
+    "description": "Dasher support for `spatie/laravel-translatable`.",
+    "license": "MIT",
+    "homepage": "https://github.com/zvive/dasher",
+    "support": {
+        "issues": "https://github.com/zvive/dasher/issues",
+        "source": "https://github.com/zvive/dasher"
+    },
+    "require": {
+        "php": "^8.0",
+        "ext-intl": "*",
+        "dasher/dasher": "self.version",
+        "illuminate/support": "^8.6|^9.0",
+        "spatie/laravel-translatable": "^5.0|^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dasher\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Dasher\\TranslatablePluginServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

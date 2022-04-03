@@ -1,0 +1,10 @@
+<?php
+
+namespace {{ namespace }};
+
+use Dasher\Widgets\Widget;
+
+class {{ class }} extends Widget
+{
+    protected static string $view = '{{ view }}';
+}

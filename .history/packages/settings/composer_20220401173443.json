@@ -1,0 +1,44 @@
+{
+    "name": "dasher/settings",
+    "description": "Filament support for `spatie/laravel-settings`.",
+    "license": "MIT",
+    "homepage": "https://github.com/zvive/dasher",
+    "support": {
+        "issues": "https://github.com/zvive/dasher/issues",
+        "source": "https://github.com/zvive/dasher"
+    },
+    "require": {
+        "php": "^8.0",
+        "dasher/dasher": "@dev",
+        "illuminate/console": "^8.6|^9.0",
+        "illuminate/filesystem": "^8.6|^9.0",
+        "illuminate/support": "^8.6|^9.0",
+        "spatie/laravel-settings": "^2.2"
+    },
+    "require-dev": {
+        "zvive/fixer": "^v9.0.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dasher\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Dasher\\DasherSettingsPluginServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../core"
+        }
+    ]
+}

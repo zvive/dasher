@@ -1,0 +1,10 @@
+<?php
+
+namespace {{ namespace }};
+
+use Dasher\Tables\Columns\Column;
+
+class {{ class }} extends Column
+{
+    protected string $view = '{{ view }}';
+}

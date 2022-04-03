@@ -1,0 +1,9 @@
+@todo
+
+- finish sub packages.
+- add modules
+- add tenancy
+- add permissions
+- add multi-dashboards
+- add react/vue w/ inertia variants.
+- add vite support

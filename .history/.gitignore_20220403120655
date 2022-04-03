@@ -1,0 +1,4 @@
+/vendor
+notes.txt
+phpunit.xml
+phpstan.neon

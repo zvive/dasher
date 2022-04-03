@@ -1,0 +1,25 @@
+{
+    "name": "dasher/plugin-media-library",
+    "description": "Dasher support for `spatie/laravel-medialibrary`.",
+    "license": "MIT",
+    "homepage": "https://github.com/zvive/dasher",
+    "support": {
+        "issues": "https://github.com/zvive/dasher/issues",
+        "source": "https://github.com/zvive/dasher"
+    },
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "^8.6|^9.0",
+        "spatie/laravel-medialibrary": "^9.0|^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dasher\\": "src"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

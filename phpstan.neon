@@ -1,0 +1,9 @@
+parameters:
+    level: 5
+    paths:
+        - packages
+    templatePaths:
+        - packages/core/resources/views
+        - packages/forms/resources/views
+        - packages/settings/resources/views
+        - packages/tables/resources/views

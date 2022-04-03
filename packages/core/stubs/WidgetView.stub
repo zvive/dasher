@@ -1,0 +1,5 @@
+<x-dasher::widget>
+    <x-dasher::card>
+        {{-- Widget content --}}
+    </x-dasher::card>
+</x-dasher::widget>

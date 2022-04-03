@@ -1,0 +1,322 @@
+<?php
+
+declare(strict_types=1);
+
+use Dasher\Pages;
+use Dasher\Widgets;
+use Dasher\Resources;
+use Dasher\Http\Middleware\Authenticate;
+use Illuminate\Session\Middleware\StartSession;
+use Illuminate\Cookie\Middleware\EncryptCookies;
+use Dasher\Http\Middleware\MirrorConfigToSubpackages;
+use Illuminate\Routing\Middleware\SubstituteBindings;
+use Dasher\Http\Middleware\DispatchServingDasherEvent;
+use Illuminate\Session\Middleware\AuthenticateSession;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
+use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+
+return [
+    'multiple_dashboards' => true,
+    'dashboards'          => [
+        [
+            'name'      => 'Admin', // module name.
+            'root_path' => 'src/Domain/Admin', // location to generate files.
+            'namespace' => 'Domain\Admin', // namespace for stubs
+            'route'     => 'admin', // route
+            'core_path' => 'admin', // routs and views
+            'domain'    => null, // specific domain if relevent.. i.e. admin.example.com
+            'home_link' => '/',
+            'brand'     => env('APP_NAME'),
+            'auth'      => [
+                'guard' => env('DASHER_AUTH_GUARD', 'web'),
+                'pages' => [
+                    'login' => \Dasher\Http\Livewire\Auth\Login::class,
+                ],
+            ],
+            'pages' => [
+                'namespace' => 'Resources', // Relevent to the namespace of the Module/Domain.
+                'path'      => 'Resources', // Relevent to the root_path
+                'register'  => [
+                    Pages\Dashboard::class,
+                ],
+            ],
+            'resources' => [
+                'namespace' => 'Resources', // Relevent to Module Namespace, ie. Admin/Resources
+                'path'      => 'Resources', // Relevent to the root_path
+                'register'  => [],
+            ],
+
+            'widgets' => [
+                'namespace' => 'Widgets',
+                'path'      => 'Widgets', // Relevent to the root_path
+                'register'  => [
+                    Widgets\AccountWidget::class,
+                    Widgets\DasherInfoWidget::class,
+                ],
+            ],
+
+            'livewire' => [
+                'namespace' => 'Http/Livewire', // Relevent to Module Namespace, ie. Admin/Resources
+                'path'      => app_path('Dasher'), // Relevent to the root_path
+            ],
+
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Dasher Path
+    |--------------------------------------------------------------------------
+    |
+    | The default is `admin` but you can change it to whatever works best and
+    | doesn't conflict with the routing in your application.
+    |
+    */
+
+    'path' => env('DASHER_PATH', 'admin'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Dasher Core Path
+    |--------------------------------------------------------------------------
+    |
+    | This is the path which Dasher will use to load it's core routes and assets.
+    | You may change it if it conflicts with your other routes.
+    |
+    */
+
+    'core_path' => env('DASHER_CORE_PATH', 'dasher'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Dasher Domain
+    |--------------------------------------------------------------------------
+    |
+    | You may change the domain where Dasher should be active. If the domain
+    | is empty, all domains will be valid.
+    |
+    */
+
+    'domain' => env('DASHER_DOMAIN'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Homepage URL
+    |--------------------------------------------------------------------------
+    |
+    | This is the URL that Dasher will redirect the user to when they click
+    | on the sidebar's header.
+    |
+    */
+
+    'home_url' => '/',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Brand Name
+    |--------------------------------------------------------------------------
+    |
+    | This will be displayed on the login page and in the sidebar's header.
+    |
+    */
+
+    'brand' => env('APP_NAME'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Auth
+    |--------------------------------------------------------------------------
+    |
+    | This is the configuration that Dasher will use to handle authentication
+    | into the admin panel.
+    |
+    */
+
+    'auth' => [
+        'guard' => env('DASHER_AUTH_GUARD', 'web'),
+        'pages' => [
+            'login' => \Dasher\Http\Livewire\Auth\Login::class,
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Pages
+    |--------------------------------------------------------------------------
+    |
+    | This is the namespace and directory that Dasher will automatically
+    | register pages from. You may also register pages here.
+    |
+    */
+
+    'pages' => [
+        'namespace' => 'App\\Dasher\\Pages',
+        'path'      => app_path('Dasher/Pages'),
+        'register'  => [
+            Pages\Dashboard::class,
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Resources
+    |--------------------------------------------------------------------------
+    |
+    | This is the namespace and directory that Dasher will automatically
+    | register resources from. You may also register resources here.
+    |
+    */
+
+    'resources' => [
+        'namespace' => 'App\\Dasher\\Resources',
+        'path'      => app_path('Dasher/Resources'),
+        'register'  => [],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Widgets
+    |--------------------------------------------------------------------------
+    |
+    | This is the namespace and directory that Dasher will automatically
+    | register dashboard widgets from. You may also register widgets here.
+    |
+    */
+
+    'widgets' => [
+        'namespace' => 'App\\Dasher\\Widgets',
+        'path'      => app_path('Dasher/Widgets'),
+        'register'  => [
+            Widgets\AccountWidget::class,
+            Widgets\DasherInfoWidget::class,
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Livewire
+    |--------------------------------------------------------------------------
+    |
+    | This is the namespace and directory that Dasher will automatically
+    | register Livewire components inside.
+    |
+    */
+
+    'livewire' => [
+        'namespace' => 'App\\Dasher',
+        'path'      => app_path('Dasher'),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Dark mode
+    |--------------------------------------------------------------------------
+    |
+    | By enabling this feature, your users are able to select between a light
+    | and dark appearance for the admin panel, or let their system decide.
+    |
+    */
+
+    'dark_mode' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Layout
+    |--------------------------------------------------------------------------
+    |
+    | This is the configuration for the general layout of the admin panel.
+    |
+    | You may configure the max content width from `xl` to `7xl`, or `full`
+    | for no max width.
+    |
+    */
+
+    'layout' => [
+        'forms' => [
+            'actions' => [
+                'alignment' => 'left',
+            ],
+            'have_inline_labels' => false,
+        ],
+        'footer' => [
+            'should_show_logo' => true,
+        ],
+        'max_content_width' => null,
+        'notifications'     => [
+            'vertical_alignment' => 'top',
+            'alignment'          => 'center',
+        ],
+        'sidebar' => [
+            'is_collapsible_on_desktop' => false,
+        ],
+        'tables' => [
+            'actions' => [
+                'type' => \Dasher\Tables\Actions\LinkAction::class,
+            ],
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Favicon
+    |--------------------------------------------------------------------------
+    |
+    | This is the path to the favicon used for pages in the admin panel.
+    |
+    */
+
+    'favicon' => null,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Avatar Provider
+    |--------------------------------------------------------------------------
+    |
+    | This is the service that will be used to retrieve default avatars if one
+    | has not been uploaded.
+    |
+    */
+
+    'default_avatar_provider' => \Dasher\AvatarProviders\UiAvatarsProvider::class,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Filesystem Disk
+    |--------------------------------------------------------------------------
+    |
+    | This is the storage disk Dasher will use to put media. You may use any
+    | of the disks defined in the `config/filesystems.php`.
+    |
+    */
+
+    'default_filesystem_disk' => env('DASHER_FILESYSTEM_DRIVER', 'public'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Middleware
+    |--------------------------------------------------------------------------
+    |
+    | You may customise the middleware stack that Dasher uses to handle
+    | requests.
+    |
+    */
+
+    'middleware' => [
+        'auth' => [
+            Authenticate::class,
+        ],
+        'base' => [
+            EncryptCookies::class,
+            AddQueuedCookiesToResponse::class,
+            StartSession::class,
+            AuthenticateSession::class,
+            ShareErrorsFromSession::class,
+            VerifyCsrfToken::class,
+            SubstituteBindings::class,
+            DispatchServingDasherEvent::class,
+            MirrorConfigToSubpackages::class,
+        ],
+    ],
+
+];
