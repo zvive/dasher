@@ -1,6 +1,6 @@
 {
-    "name": "dasher/tags-plugin",
-    "description": "Dasher support for `spatie/laravel-tags`.",
+    "name": "dasher/settings",
+    "description": "Dasher support for `spatie/laravel-settings`.",
     "license": "MIT",
     "homepage": "https://github.com/zvive/dasher",
     "support": {
@@ -9,8 +9,11 @@
     },
     "require": {
         "php": "^8.0",
-        "illuminate/database": "^8.6|^9.0",
-        "spatie/laravel-tags": "^4.0"
+        "dasher/dasher": "^1.1",
+        "illuminate/console": "^8.6|^9.0",
+        "illuminate/filesystem": "^8.6|^9.0",
+        "illuminate/support": "^8.6|^9.0",
+        "spatie/laravel-settings": "^2.2"
     },
     "require-dev": {
         "zvive/fixer": "^v9.0.6"
@@ -21,6 +24,11 @@
         }
     },
     "extra": {
+        "laravel": {
+            "providers": [
+                "Dasher\\SettingsPluginServiceProvider"
+            ]
+        },
         "branch-alias": {
             "dev-master": "1.0.x-dev"
         }
@@ -29,5 +37,11 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../core"
+        }
+    ]
 }

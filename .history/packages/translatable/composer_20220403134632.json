@@ -1,6 +1,6 @@
 {
-    "name": "dasher/tags-plugin",
-    "description": "Dasher support for `spatie/laravel-tags`.",
+    "name": "dasher/dasher-translatable-plugin",
+    "description": "Dasher support for `spatie/laravel-translatable`.",
     "license": "MIT",
     "homepage": "https://github.com/zvive/dasher",
     "support": {
@@ -9,8 +9,10 @@
     },
     "require": {
         "php": "^8.0",
-        "illuminate/database": "^8.6|^9.0",
-        "spatie/laravel-tags": "^4.0"
+        "ext-intl": "*",
+        "dasher/dasher": "^1.1",
+        "illuminate/support": "^8.6|^9.0",
+        "spatie/laravel-translatable": "^5.0|^6.0"
     },
     "require-dev": {
         "zvive/fixer": "^v9.0.6"
@@ -21,6 +23,11 @@
         }
     },
     "extra": {
+        "laravel": {
+            "providers": [
+                "Dasher\\TranslatablePluginServiceProvider"
+            ]
+        },
         "branch-alias": {
             "dev-master": "1.0.x-dev"
         }
@@ -29,5 +36,11 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../core"
+        }
+    ]
 }

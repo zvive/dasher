@@ -1,21 +1,25 @@
 {
-    "name": "dasher/tables",
-    "description": "Effortlessly build TALL-powered tables.",
+    "name": "dasher/dasher",
+    "description": "Effortlessly build TALL-powered admin panels.",
     "license": "MIT",
-    "homepage": "https://github.com/laravel-dasher/dasher",
+    "homepage": "https://github.com/zvive/dasher",
     "support": {
-        "issues": "https://github.com/laravel-dasher/dasher/issues",
-        "source": "https://github.com/laravel-dasher/dasher"
+        "issues": "https://github.com/zvive/dasher/issues",
+        "source": "https://github.com/zvive/dasher"
     },
     "require": {
         "php": "^8.0",
-        "akaunting/laravel-money": "^1.2|^2.0",
-        "blade-ui-kit/blade-heroicons": "^1.2",
-        "dasher/forms": "^1.0.3",
+        "danharrin/livewire-rate-limiting": "^0.3|^1.0",
+        "dasher/forms": "self.version",
+        "dasher/tables": "self.version",
+        "illuminate/auth": "^8.6|^9.0",
         "illuminate/console": "^8.6|^9.0",
         "illuminate/contracts": "^8.6|^9.0",
+        "illuminate/cookie": "^8.6|^9.0",
         "illuminate/database": "^8.6|^9.0",
-        "illuminate/filesystem": "^8.6|^9.0",
+        "illuminate/http": "^8.6|^9.0",
+        "illuminate/routing": "^8.6|^9.0",
+        "illuminate/session": "^8.6|^9.0",
         "illuminate/support": "^8.6|^9.0",
         "illuminate/view": "^8.6|^9.0",
         "livewire/livewire": "^2.6",
@@ -25,14 +29,17 @@
         "zvive/fixer": "^v9.0.6"
     },
     "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
         "psr-4": {
-            "Dasher\\Tables\\": "src"
+            "Dasher\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Dasher\\Tables\\TablesServiceProvider"
+                "Dasher\\DasherServiceProvider"
             ]
         },
         "branch-alias": {
@@ -48,6 +55,10 @@
         {
             "type": "path",
             "url": "../forms"
+        },
+        {
+            "type": "path",
+            "url": "../tables"
         }
     ]
 }
