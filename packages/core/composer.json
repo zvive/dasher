@@ -10,8 +10,8 @@
     "require": {
         "php": "^8.0",
         "danharrin/livewire-rate-limiting": "^0.3|^1.0",
-        "dasher/forms": "@dev",
-        "dasher/tables": "@dev",
+        "dasher/forms": "^1.0.1",
+        "dasher/tables": "^1.0.1",
         "illuminate/auth": "^8.6|^9.0",
         "illuminate/console": "^8.6|^9.0",
         "illuminate/contracts": "^8.6|^9.0",
@@ -28,7 +28,6 @@
     "require-dev": {
         "zvive/fixer": "^v9.0.6"
     },
-
     "autoload": {
         "files": [
             "src/helpers.php"
@@ -59,5 +58,4 @@
             "url": "../tables"
         }
     ]
-
 }

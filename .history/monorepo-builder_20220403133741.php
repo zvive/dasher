@@ -16,11 +16,6 @@ return static function (ContainerConfigurator $containerConfigurator) : void {
     $parameters = $containerConfigurator->parameters();
     // default: "<major>.<minor>-dev"
     $parameters->set(Option::PACKAGE_ALIAS_FORMAT, '<major>.<minor>.x-dev');
-    $parameters->set(Option::PACKAGE_DIRECTORIES, [
-        // default value
-        __DIR__.'/packages',
-    ]);
-
     $services = $containerConfigurator->services();
 
     // Release workers - in order to execute
