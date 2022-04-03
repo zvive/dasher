@@ -17,7 +17,7 @@
     "require": {
         "php": "^8.0",
         "spatie/laravel-package-tools": "^1.11",
-        "dasher/dasher": "^1.0.5",
+        "dasher/dasher": "^1.1",
         "illuminate/contracts": "^8.73|^9.0",
         "illuminate/support": "^8.73|^9.0"
     },
