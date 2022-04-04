@@ -1,0 +1,119 @@
+{
+    "name": "dasher/dasher",
+    "description": "Effortlessly build TALL-powered admin panels.",
+    "license": "MIT",
+    "homepage": "https://github.com/zvive/dasher",
+    "authors": [
+        {
+            "name": "Patrick Curl",
+            "email": "patrickwcurl@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "ext-intl": "*",
+        "akaunting/laravel-money": "^1.2|^2.0",
+        "blade-ui-kit/blade-heroicons": "^1.2",
+        "danharrin/date-format-converter": "^0.2",
+        "danharrin/livewire-rate-limiting": "^0.3|^1.0",
+        "illuminate/auth": "^8.6|^9.0",
+        "illuminate/console": "^8.6|^9.0",
+        "illuminate/contracts": "^8.6|^9.0",
+        "illuminate/cookie": "^8.6|^9.0",
+        "illuminate/database": "^8.6|^9.0",
+        "illuminate/filesystem": "^8.6|^9.0",
+        "illuminate/http": "^8.6|^9.0",
+        "illuminate/routing": "^8.6|^9.0",
+        "illuminate/session": "^8.6|^9.0",
+        "illuminate/support": "^8.6|^9.0",
+        "illuminate/validation": "^8.6|^9.0",
+        "illuminate/view": "^8.6|^9.0",
+        "livewire/livewire": "^2.10",
+        "spatie/laravel-medialibrary": "^9.0|^10.0",
+        "spatie/laravel-package-tools": "^1.11",
+        "spatie/laravel-settings": "^2.2",
+        "spatie/laravel-tags": "^4.2",
+        "spatie/laravel-translatable": "^5.0|^6.0"
+    },
+    "require-dev": {
+        "canvural/phpstan-blade-rule": "^0.1.0",
+        "doctrine/dbal": "^3.2",
+        "league/flysystem-aws-s3-v3": "^1.0|^2.0|^3.0",
+        "nunomaduro/collision": "^5.10|^6.0",
+        "nunomaduro/larastan": "^1.0|^2.0",
+        "orchestra/testbench": "^6.0|^7.0",
+        "pestphp/pest": "^1.17",
+        "pestphp/pest-plugin-laravel": "^1.0",
+        "pestphp/pest-plugin-livewire": "^1.0",
+        "pestphp/pest-plugin-parallel": "^0.3",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpunit/phpunit": "^9.5",
+        "spatie/laravel-ray": "^1.29",
+        "symplify/monorepo-builder": "^10.0",
+        "zvive/fixer": "^v9.0.6"
+    },
+    "autoload": {
+        "files": [
+            "packages/core/src/helpers.php",
+            "packages/forms/src/helpers.php"
+        ],
+        "psr-4": {
+            "Dasher\\": [
+                "packages/core/src",
+                "packages/media-library/src",
+                "packages/settings/src",
+                "packages/tags/src",
+                "packages/translatable/src"
+            ],
+            "Dasher\\Profile\\": "packages/profile/src",
+            "Dasher\\Forms\\": "packages/forms/src",
+            "Dasher\\Profile\\": "packages/profile/src",
+            "Dasher\\Tables\\": "packages/tables/src",
+
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dasher\\Tests\\": "tests/src",
+            "Dasher\\Tests\\Database\\Factories\\": "tests/database/factories"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Dasher\\Forms\\FormsServiceProvider",
+                "Dasher\\DasherServiceProvider",
+                "Dasher\\SettingsPluginServiceProvider",
+                "Dasher\\TranslatablePluginServiceProvider",
+                "Dasher\\Profile\\ProfileServiceProvider",
+                "Dasher\\Tables\\TablesServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/pest --parallel && ./vendor/bin/phpstan analyse"
+    },
+    "replace": {
+        "dasher/dasher": "self.version",
+        "dasher/dasher-translatable-plugin": "self.version",
+        "dasher/forms": "self.version",
+        "dasher/media-library-plugin": "self.version",
+        "dasher/profile": "self.version",
+        "dasher/settings": "self.version",
+        "dasher/tables": "self.version",
+        "dasher/tags-plugin": "self.version"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

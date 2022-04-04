@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Dasher\Http\Livewire\Auth;
 
 use Livewire\Component;
-use Dasher\Facades\Dasher;
 use Illuminate\Contracts\View\View;
 use Dasher\Forms\ComponentContainer;
 use Dasher\Forms\Contracts\HasForms;
@@ -19,7 +18,7 @@ use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 /**
  * @property ComponentContainer $form
  */
-class GlobalSearch extends Component implements HasForms
+class Login extends Component implements HasForms
 {
     use InteractsWithForms;
     use WithRateLimiting;
@@ -42,7 +41,7 @@ class GlobalSearch extends Component implements HasForms
 
         $data = $this->form->getState();
 
-        if ( ! Dasher::auth()->attempt([
+        if ( ! Filament::auth()->attempt([
             'email' => $data['email'],
             'password' => $data['password'],
         ], $data['remember'])) {
@@ -73,8 +72,8 @@ class GlobalSearch extends Component implements HasForms
 
     public function mount() : void
     {
-        if (Dasher::auth()->check()) {
-            \redirect()->intended(Dasher::getUrl());
+        if (Filament::auth()->check()) {
+            \redirect()->intended(Filament::getUrl());
         }
 
         $this->form->fill();

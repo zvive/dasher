@@ -3,14 +3,10 @@
     "description": "Dasher support for `spatie/laravel-tags`.",
     "license": "MIT",
     "homepage": "https://github.com/zvive/dasher",
-    "support": {
-        "issues": "https://github.com/zvive/dasher/issues",
-        "source": "https://github.com/zvive/dasher"
-    },
     "require": {
         "php": "^8.0",
         "illuminate/database": "^8.6|^9.0",
-        "spatie/laravel-tags": "^4.0"
+        "spatie/laravel-tags": "^4.2"
     },
     "require-dev": {
         "zvive/fixer": "^v9.0.6"
